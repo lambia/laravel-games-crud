@@ -18,9 +18,10 @@ class GamesTableSeeder extends Seeder
         //Creo UN gioco
         $newRecord = new Game();
         $newRecord->name = "Max Payne";
+        $newRecord->description = "Infuriava una vera tempesta di neve... piovevano proiettili di ghiaccio come se il cielo volesse vendicarsi della terra. Tutti cercavano un riparo, come se non ci fosse più un domani.";
         $newRecord->price = 9.99;
         $newRecord->release_year = 2001;
-        $newRecord->cover_image = "https://image.api.playstation.com/cdn/EP1004/CUSA04488_00/wkULSyjvjH6xGS9juseLnkjmtG6VGlem.png?w=440";
+        $newRecord->cover_image = "https://sm.ign.com/ign_it/game/default/thumb-1920-656637_9p97.jpg";
         $newRecord->vote = 10;
         $newRecord->save();
 
@@ -28,10 +29,11 @@ class GamesTableSeeder extends Seeder
         for ($i=0; $i < 11; $i++) { 
             //Creo UN gioco
             $newRecord = new Game();
-            $newRecord->name = $faker->sentence(4);
+            $newRecord->name = $faker->sentence(2);
+            $newRecord->description = $faker->paragraph(3);
             $newRecord->price = $faker->randomFloat(2, 0.99, 69.99);
             $newRecord->release_year = $faker->numberBetween(1981, 2024);
-            $newRecord->cover_image = "https://picsum.photos/id/" . $faker->numberBetween(1, 700) . "/540/960";
+            $newRecord->cover_image = "https://picsum.photos/id/" . $faker->numberBetween(1, 700) . "/1920/1080";
             $newRecord->vote = $faker->randomDigit(); //equivalente di $faker->numberBetween(0, 9);
             $newRecord->save();
         }

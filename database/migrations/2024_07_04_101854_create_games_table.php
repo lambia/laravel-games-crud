@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string("name", 200);
+            $table->string("description");
             $table->decimal("price", 5);
             $table->year("release_year");
             $table->string("cover_image", 256);
