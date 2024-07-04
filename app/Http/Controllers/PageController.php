@@ -10,4 +10,8 @@ class PageController extends Controller
         $dati = config("data");
         return view('home', $dati);
     }
+
+    public function about() {
+        return view('about');
+    }
 }
