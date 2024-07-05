@@ -26,15 +26,27 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        return view("games.create");
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    {	
+        $data = $request->all();
+        
+        $newGame = new Game();
+        $newGame->name = $data["name"];
+        $newGame->description = $data["description"];
+        $newGame->price = $data["price"];
+        $newGame->release_year = $data["release_year"];
+        $newGame->cover_image = $data["cover_image"];
+        $newGame->vote = $data["vote"];
+         
+        $newGame->save();
+                  
+        return redirect()->route('games.show', $newGame->id);
     }
 
     /**
