@@ -92,9 +92,28 @@ class GameController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Game $game)
     {
-        //
+        // $game è la nostra istanza di Game
+        // $data è un array associativo con tutti i dati inviati dal form
+
+        //come per il metodo store, recupero tutti i dati inviati con il form
+        $data = $request->all();
+        // dump($data);
+
+        // non ho bisogno di creare un new Game
+        // cambio i valori delle proprietà
+        // esempio: $game->nomeCampoSulDatabase = $data["nameDellaInputNelForm"];
+        $game->name = $data["name"];
+        $game->description = $data["description"];
+        $game->price = $data["price"];
+        $game->release_year = $data["release_year"];
+        $game->cover_image = $data["cover_image"];
+        $game->vote = $data["vote"];
+        $game->save();
+
+        //come per il metodo store, redireziono sulla pagina che mostra i dettagli del gioco
+        return redirect()->route('games.show', $game->id);
     }
 
     /**
