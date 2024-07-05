@@ -39,6 +39,7 @@ class GameController extends Controller
 
         // recupero tutti i dati inviati con il form
         $data = $request->all();
+        // dump($data);
         
         // Creo un nuovo Game e ne scrivo i dati
         $newGame = new Game();
