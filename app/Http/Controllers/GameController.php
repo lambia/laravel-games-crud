@@ -74,9 +74,13 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Game $game)
     {
-        //
+        $data = [
+            "game" => $game
+        ];
+
+        return view("games.edit", $data);
     }
 
     /**
