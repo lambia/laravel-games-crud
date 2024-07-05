@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index() {
-        $dati = config("data");
-        return view('pages.home', $dati);
+        return view('pages.home');
     }
 
     public function about() {
