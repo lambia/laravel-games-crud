@@ -34,8 +34,13 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {	
+        // $game è la nostra istanza di Game
+        // $data è un array associativo con tutti i dati inviati dal form
+
+        // recupero tutti i dati inviati con il form
         $data = $request->all();
         
+        // Creo un nuovo Game e ne scrivo i dati
         $newGame = new Game();
         $newGame->name = $data["name"];
         $newGame->description = $data["description"];
@@ -43,9 +48,10 @@ class GameController extends Controller
         $newGame->release_year = $data["release_year"];
         $newGame->cover_image = $data["cover_image"];
         $newGame->vote = $data["vote"];
-         
+        // Scrivo il Game sul database
         $newGame->save();
-                  
+                 
+        // redireziono sulla pagina che mostra i dettagli del gioco
         return redirect()->route('games.show', $newGame->id);
     }
 

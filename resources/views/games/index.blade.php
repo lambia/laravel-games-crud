@@ -19,6 +19,7 @@
                         </div>
                         <div class="card-footer text-center">
                             <a href="{{ route('games.show', $gioco->id) }}" class="btn btn-primary">Vai ai dettagli</a>
+                            <a href="/che/rotta/uso?" class="btn btn-warning">Modifica</a>
                         </div>
                     </div>
                 </div>
