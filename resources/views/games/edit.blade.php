@@ -14,27 +14,27 @@
                 <form>
                     <div class="mb-3">
                         <label class="form-label">name</label>
-                        <input type="text" class="form-control" name="name" value="{{ $game->name }}">
+                        <input type="text" class="form-control" name="name" required value="{{ $game->name }}">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">description</label>
-                        <input type="text" class="form-control" name="description" value="{{ $game->description }}">
+                        <textarea type="text" class="form-control" name="description" required>{{ $game->description }}</textarea>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">price</label>
-                        <input type="text" class="form-control" name="price" value="{{ $game->price }}">
+                        <input type="number" min="0.99" max="999.99" class="form-control" name="price" required value="{{ $game->price }}">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">release_year</label>
-                        <input type="text" class="form-control" name="release_year" value="{{ $game->release_year }}">
+                        <input type="number" min="1980" max="2024" class="form-control" name="release_year" required value="{{ $game->release_year }}">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">cover_image</label>
-                        <input type="text" class="form-control" name="cover_image" value="{{ $game->cover_image }}">
+                        <input type="text" class="form-control" name="cover_image" required value="{{ $game->cover_image }}">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">vote</label>
-                        <input type="text" class="form-control" name="vote" value="{{ $game->vote }}">
+                        <input type="number" min="0" max="10" class="form-control" name="vote" required value="{{ $game->vote }}">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
