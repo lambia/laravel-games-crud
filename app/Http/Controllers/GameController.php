@@ -40,12 +40,20 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        $gioco = Game::find($id);
+    // public function show(string $id) {
+    //     $game = Game::findOrFail($id);
+
+    //     $data = [
+    //         "game" => $game
+    //     ];
+
+    //     return view("games.show", $data);
+    // }
+
+    public function show(Game $game) {
 
         $data = [
-            "game" => $gioco
+            "game" => $game
         ];
 
         return view("games.show", $data);
