@@ -25,7 +25,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">price</label>
-                        <input type="number" min="0.99" max="999.99" class="form-control" name="price" required value="{{ $game->price }}">
+                        <input type="number" step="0.01" min="0.99" max="999.99" class="form-control" name="price" required value="{{ $game->price }}">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">release_year</label>
