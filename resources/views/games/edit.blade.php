@@ -5,6 +5,16 @@
         <div class="row">
             <div class="col-12">
                 <h1>Modifica: {{ $game->name }}</h1>
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
         </div>
 
@@ -18,10 +28,16 @@
                     <div class="mb-3">
                         <label class="form-label">name</label>
                         <input type="text" class="form-control" name="name" required value="{{ $game->name }}">
+                        @error("name")
+                            <div>{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">description</label>
                         <textarea type="text" class="form-control" name="description" required>{{ $game->description }}</textarea>
+                        @error("name")
+                            <div>{{ $description }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">price</label>

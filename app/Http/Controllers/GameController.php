@@ -34,20 +34,22 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {	
-        // $data è un array associativo con tutti i dati inviati dal form
+        // recupero e valido  i dati inviati con il form necessari al mio model
+        $data = $request->validate([
+            "name" => "required|min:3|max:255",
+            "description" => "required|min:3|max:255",
+            "price" => "required",
+            "release_year" => "required",
+            "cover_image" => "required",
+            "vote" => "required",
+        ]);
 
-        // recupero tutti i dati inviati con il form
-        $data = $request->all();
         // dd($data);
         
         // Creo un nuovo Game e ne scrivo i dati
         $newGame = new Game();
-        $newGame->name = $data["name"];
-        $newGame->description = $data["description"];
-        $newGame->price = $data["price"];
-        $newGame->release_year = $data["release_year"];
-        $newGame->cover_image = $data["cover_image"];
-        $newGame->vote = $data["vote"];
+        $newGame->fill( $data );
+
         // Scrivo il Game sul database
         $newGame->save();
                  
@@ -95,22 +97,22 @@ class GameController extends Controller
     public function update(Request $request, Game $game)
     {
         // $game è la nostra istanza di Game
-        // $data è un array associativo con tutti i dati inviati dal form
 
-        //come per il metodo store, recupero tutti i dati inviati con il form
-        $data = $request->all();
-        // dd($data);
+        // recupero e valido  i dati inviati con il form necessari al mio model
+        $data = $request->validate([
+            "name" => "required|min:3|max:255",
+            "description" => "required|min:3|max:255",
+            "price" => "required",
+            "release_year" => "required",
+            "cover_image" => "required",
+            "vote" => "required",
+        ]);
 
-        // non ho bisogno di creare un new Game
-        // cambio i valori delle proprietà
-        // esempio: $game->nomeCampoSulDatabase = $data["nameDellaInputNelForm"];
-        $game->name = $data["name"];
-        $game->description = $data["description"];
-        $game->price = $data["price"];
-        $game->release_year = $data["release_year"];
-        $game->cover_image = $data["cover_image"];
-        $game->vote = $data["vote"];
-        $game->save();
+        //posso popolare il model e poi salvarlo, come abbiamo fatto nel metodo store():
+        // $game->fill($data);
+        // $game->save();
+        //oppure fare tutto in un'unica istruzione
+        $game->update($data);
 
         //come per il metodo store, redireziono sulla pagina che mostra i dettagli del gioco
         return redirect()->route('games.show', $game);
