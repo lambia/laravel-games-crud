@@ -20,6 +20,11 @@
                         <div class="card-footer text-center">
                             <a href="{{ route('games.show', $gioco->id) }}" class="btn btn-primary">Vai ai dettagli</a>
                             <a href="{{ route('games.edit', $gioco->id) }}" class="btn btn-warning">Modifica</a>
+                            <form action="{{ route('games.destroy', $gioco->id) }}" method="POST">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit" class="btn btn-danger">Delete</a>
+                            </form>
                         </div>
                     </div>
                 </div>
