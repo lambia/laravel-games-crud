@@ -30,7 +30,7 @@ class GamesTableSeeder extends Seeder
             //Creo UN gioco
             $newRecord = new Game();
             $newRecord->name = $faker->sentence(2);
-            $newRecord->description = $faker->paragraph(3);
+            $newRecord->description = $faker->paragraph(1);
             $newRecord->price = $faker->randomFloat(2, 0.99, 69.99);
             $newRecord->release_year = $faker->numberBetween(1981, 2024);
             $newRecord->cover_image = "https://picsum.photos/id/" . $faker->numberBetween(1, 700) . "/1920/1080";
