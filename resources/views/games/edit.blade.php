@@ -35,7 +35,7 @@
                     <div class="mb-3">
                         <label class="form-label">description</label>
                         <textarea type="text" class="form-control" name="description" required>{{ $game->description }}</textarea>
-                        @error("name")
+                        @error("description")
                             <div>{{ $description }}</div>
                         @enderror
                     </div>
