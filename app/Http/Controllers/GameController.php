@@ -36,12 +36,12 @@ class GameController extends Controller
     {	
         // recupero e valido  i dati inviati con il form necessari al mio model
         $data = $request->validate([
-            "name" => "required|min:3|max:255",
-            "description" => "required|min:3|max:255",
-            "price" => "required",
-            "release_year" => "required",
-            "cover_image" => "required",
-            "vote" => "required",
+            "name" => "required|min:3|max:200", //perchè 200? v. migration
+            "description" => "required|min:12|max:255", //perchè 255? v. migration
+            "price" => "required|decimal:2|max:999.99|min:0.99",
+            "release_year" => "required|integer|min:1980|max:2024",
+            "cover_image" => "required|max:255",
+            "vote" => "required|integer|min:0|max:10",
         ]);
 
         // dd($data);
@@ -100,12 +100,12 @@ class GameController extends Controller
 
         // recupero e valido  i dati inviati con il form necessari al mio model
         $data = $request->validate([
-            "name" => "required|min:3|max:255",
-            "description" => "required|min:3|max:255",
-            "price" => "required",
-            "release_year" => "required",
-            "cover_image" => "required",
-            "vote" => "required",
+            "name" => "required|min:3|max:200",
+            "description" => "required|min:12|max:255",
+            "price" => "required|decimal:2|max:999.99|min:0.99",
+            "release_year" => "required|integer|min:1980|max:2024",
+            "cover_image" => "required|max:255",
+            "vote" => "required|integer|min:0|max:10",
         ]);
 
         //posso popolare il model e poi salvarlo, come abbiamo fatto nel metodo store():
