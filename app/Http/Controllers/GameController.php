@@ -34,7 +34,6 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {	
-        // $game è la nostra istanza di Game
         // $data è un array associativo con tutti i dati inviati dal form
 
         // recupero tutti i dati inviati con il form
