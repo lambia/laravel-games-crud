@@ -26,14 +26,14 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">name</label>
-                        <input type="text" class="form-control" name="name" required>
+                        <input type="text" class="form-control" name="name" required value="{{ old('name') }}">
                         @error('name')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">description</label>
-                        <textarea type="text" class="form-control" name="description" required></textarea>
+                        <textarea type="text" class="form-control" name="description" required>{{ old('description') }}</textarea>
                         @error('description')
                             <div>{{ $message }}</div>
                         @enderror
@@ -41,7 +41,7 @@
                     <div class="mb-3">
                         <label class="form-label">price</label>
                         <input type="number" min="0.99" max="999.99" step="0.01" class="form-control"
-                            name="price" required>
+                            name="price" required value="{{ old('price') }}">
                         @error('price')
                             <div>{{ $message }}</div>
                         @enderror
@@ -49,21 +49,21 @@
                     <div class="mb-3">
                         <label class="form-label">release_year</label>
                         <input type="number" min="1980" max="2024" class="form-control" name="release_year"
-                            required>
+                            required value="{{ old('release_year') }}">
                         @error('release_year')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">cover_image</label>
-                        <input type="text" class="form-control" name="cover_image" required>
+                        <input type="text" class="form-control" name="cover_image" required value="{{ old('cover_image') }}">
                         @error('cover_image')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">vote</label>
-                        <input type="number" min="0" max="10" class="form-control" name="vote" required>
+                        <input type="number" min="0" max="10" class="form-control" name="vote" required value="{{ old('vote') }}">
                         @error('vote')
                             <div>{{ $message }}</div>
                         @enderror

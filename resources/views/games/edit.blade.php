@@ -22,48 +22,53 @@
             <div class="col-12">
 
                 {{-- Questo form non carica una generica rotta "store" ma ha bisogno dell'id del gioco da aggiornare --}}
-                <form method="POST" action="{{ route("games.update", $game->id) }}">
+                <form method="POST" action="{{ route('games.update', $game->id) }}">
                     @method('PUT') {{-- v. slide da 32 a 35 --}}
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">name</label>
-                        <input type="text" class="form-control" name="name" required value="{{ $game->name }}">
-                        @error("name")
+                        <input type="text" class="form-control" name="name" required
+                            value="{{ old('name') ?? $game->name }}">
+                        @error('name')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">description</label>
-                        <textarea type="text" class="form-control" name="description" required>{{ $game->description }}</textarea>
-                        @error("description")
+                        <textarea type="text" class="form-control" name="description" required>{{ old('description') ?? $game->description }}</textarea>
+                        @error('description')
                             <div>{{ $description }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">price</label>
-                        <input type="number" step="0.01" min="0.99" max="999.99" class="form-control" name="price" required value="{{ $game->price }}">
-                        @error("price")
+                        <input type="number" step="0.01" min="0.99" max="999.99" class="form-control"
+                            name="price" required value="{{ old('price') ?? $game->price }}">
+                        @error('price')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">release_year</label>
-                        <input type="number" min="1980" max="2024" class="form-control" name="release_year" required value="{{ $game->release_year }}">
-                        @error("release_year")
+                        <input type="number" min="1980" max="2024" class="form-control" name="release_year"
+                            required value="{{ old('release_year') ?? $game->release_year }}">
+                        @error('release_year')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">cover_image</label>
-                        <input type="text" class="form-control" name="cover_image" required value="{{ $game->cover_image }}">
-                        @error("cover_image")
+                        <input type="text" class="form-control" name="cover_image" required
+                            value="{{ old('cover_image') ?? $game->cover_image }}">
+                        @error('cover_image')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">vote</label>
-                        <input type="number" min="0" max="10" class="form-control" name="vote" required value="{{ $game->vote }}">
-                        @error("vote")
+                        <input type="number" min="0" max="10" class="form-control" name="vote" required
+                            value="{{ old('vote') ?? $game->vote }}">
+                        @error('vote')
                             <div>{{ $message }}</div>
                         @enderror
                     </div>
