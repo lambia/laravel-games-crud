@@ -20,7 +20,7 @@
                         <a class="nav-link" href="{{ route('games.index') }}">Catalogo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/quale/rotta/chiamo?">Aggiungi un gioco</a>
+                        <a class="nav-link" href="{{ route('games.create') }}">Aggiungi un gioco</a>
                     </li>
                 </ul>
             </div>
