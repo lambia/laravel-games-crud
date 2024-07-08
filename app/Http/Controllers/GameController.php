@@ -38,7 +38,7 @@ class GameController extends Controller
 
         // recupero tutti i dati inviati con il form
         $data = $request->all();
-        // dump($data);
+        // dd($data);
         
         // Creo un nuovo Game e ne scrivo i dati
         $newGame = new Game();
@@ -52,7 +52,7 @@ class GameController extends Controller
         $newGame->save();
                  
         // redireziono sulla pagina che mostra i dettagli del gioco
-        return redirect()->route('games.show', $newGame->id);
+        return redirect()->route('games.show', $newGame);
     }
 
     /**
@@ -99,7 +99,7 @@ class GameController extends Controller
 
         //come per il metodo store, recupero tutti i dati inviati con il form
         $data = $request->all();
-        // dump($data);
+        // dd($data);
 
         // non ho bisogno di creare un new Game
         // cambio i valori delle proprietà
@@ -113,7 +113,7 @@ class GameController extends Controller
         $game->save();
 
         //come per il metodo store, redireziono sulla pagina che mostra i dettagli del gioco
-        return redirect()->route('games.show', $game->id);
+        return redirect()->route('games.show', $game);
     }
 
     /**
